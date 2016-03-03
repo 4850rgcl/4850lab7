@@ -12,6 +12,22 @@ and open the template in the editor.
 -->
 
 <!-- TODO define your own vocabulary/syntax. Example follows:  -->
-<!ELEMENT __ROOT__ ANY>
-<!ATTLIST __ROOT__ version CDATA #REQUIRED>
+<!ELEMENT timetable (days, timeslots, courses)>
+
+<!ELEMENT days (day)>
+<!ELEMENT timeslots (#PCDATA)>
+<!ELEMENT courses (#PCDATA)>
+
+<!ELEMENT day (timeslot)>
+<!ELEMENT timeslot (course)>
+<!ELEMENT course (booking)>
+<!ELEMENT booking (#PCDATA)>
+
+
+<!ATTLIST day weekday (mon|tues|weds|thurs|fri) #REQUIRED>
+<!ATTLIST timeslot start-time CDATA #REQUIRED end-time CDATA #REQUIRED>
+<!ATTLIST course program CDATA #REQUIRED code CDATA #REQUIRED>
+<!ATTLIST booking instructor CDATA #REQUIRED>
+
+
 

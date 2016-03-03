@@ -1,5 +1,7 @@
 Newest changes at the top
 Format: MM/DD/YYYY HH:MM - comment  
 
+
+03/03/2016 14:31 - DTD, setup elements and attribs for days
 03/03/2016 13:52 - File and folder setup
 03/03/2016 13:41 - Initial setup
