@@ -16,11 +16,11 @@ and open the template in the editor.
 
 <!ELEMENT days (day)>
 <!ELEMENT timeslots (timeslot)>
-<!ELEMENT courses (#PCDATA)>
+<!ELEMENT courses (course)>
 
 <!ELEMENT day (timeslot|course)>
-<!ELEMENT timeslot (course|day)>
-<!ELEMENT course (booking)>
+<!ELEMENT timeslot (course|day|booking)>
+<!ELEMENT course (booking|day)>
 <!ELEMENT booking (#PCDATA)>
 
 
