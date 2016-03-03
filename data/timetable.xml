@@ -9,10 +9,31 @@ and open the template in the editor.
 <timetable>
     <days>
         <day weekday="mon">
-            <timeslot start-time="0830" end-time="0920">
-                <course program="ACIT" code="4950">
-                    <booking instructor="Jim">
-                        Sauna
+            <timeslot start-time="1030" end-time="1120">
+                <course program="ACIT" code="4650">
+                    <booking instructor="Medhat Elmasry">
+                        SE12-306
+                    </booking>
+                </course>
+            </timeslot>
+            <timeslot start-time="1130" end-time="1220">
+                <course program="ACIT" code="4650">
+                    <booking instructor="Medhat Elmasry">
+                        SE12-306
+                    </booking>
+                </course>
+            </timeslot>
+            <timeslot start-time="1530" end-time="1620">
+                <course program="ACIT" code="4910">
+                    <booking instructor="Richard Chau">
+                        SW9-206
+                    </booking>
+                </course>
+            </timeslot>
+            <timeslot start-time="1630" end-time="1720">
+                <course program="ACIT" code="4650">
+                    <booking instructor="Medhat Elmasry">
+                        SE6-205
                     </booking>
                 </course>
             </timeslot>
