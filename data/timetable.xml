@@ -18,6 +18,16 @@ and open the template in the editor.
             </timeslot>
         </day>
     </days>
-    <timeslots>TIME</timeslots>
+    <timeslots>
+        <timeslot start-time="0830" end-time="0920">
+            <day weekday="tues">
+                <course program="ACIT" code="4420">
+                    <booking instructor="Medhat">
+                        SW3-3300
+                    </booking> 
+                </course>
+            </day>
+        </timeslot>
+    </timeslots>
     <courses>COURSES</courses>
 </timetable>
