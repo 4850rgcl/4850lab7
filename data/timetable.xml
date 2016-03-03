@@ -7,5 +7,17 @@ and open the template in the editor.
 
 <!DOCTYPE timetable SYSTEM "timetable.dtd">
 <timetable>
-    
+    <days>
+        <day weekday="mon">
+            <timeslot start-time="0830" end-time="0920">
+                <course program="ACIT" code="4950">
+                    <booking instructor="Jim">
+                        Sauna
+                    </booking>
+                </course>
+            </timeslot>
+        </day>
+    </days>
+    <timeslots>TIME</timeslots>
+    <courses>COURSES</courses>
 </timetable>
