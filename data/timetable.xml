@@ -58,11 +58,28 @@ and open the template in the editor.
         </timeslot>
     </timeslots>
     <courses>
-        <course program="ACIT" code="4620">
+        <course program="ACIT" code="4850">
             <day weekday="weds">
                 <timeslot start-time="1230" end-time="1320">
-                    <booking instructor="Bethany">
-                        SW3-3315
+                    <booking instructor="James Parry">
+                        SW3-1750
+                    </booking>
+                </timeslot>
+                <timeslot start-time="1330" end-time="1420">
+                    <booking instructor="James Parry">
+                        SW3-1750
+                    </booking>
+                </timeslot>
+            </day>
+            <day weekday="thurs">
+                <timeslot start-time="1330" end-time="1420">
+                    <booking instructor="James Parry">
+                        SE12-308
+                    </booking>
+                </timeslot>
+                <timeslot start-time="1430" end-time="1520">
+                    <booking instructor="James Parry">
+                        SE12-308
                     </booking>
                 </timeslot>
             </day>
