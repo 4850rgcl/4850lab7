@@ -42,9 +42,16 @@ and open the template in the editor.
     <timeslots>
         <timeslot start-time="0830" end-time="0920">
             <day weekday="tues">
-                <course program="ACIT" code="4420">
-                    <booking instructor="Medhat">
-                        SW3-3300
+                <course program="ACIT" code="4620">
+                    <booking instructor="Bethany Edmunds">
+                        SE12-306
+                    </booking> 
+                </course>
+            </day>
+            <day weekday="fri">
+                <course program="ACIT" code="4660">
+                    <booking instructor="Steve Fabiszewski">
+                        SE12-306
                     </booking> 
                 </course>
             </day>
