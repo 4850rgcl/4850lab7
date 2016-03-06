@@ -14,13 +14,13 @@ and open the template in the editor.
 <!-- TODO define your own vocabulary/syntax. Example follows:  -->
 <!ELEMENT timetable (days, timeslots, courses)>
 
-<!ELEMENT days (day)>
-<!ELEMENT timeslots (timeslot)>
-<!ELEMENT courses (course)>
+<!ELEMENT days (day*)>
+<!ELEMENT timeslots (timeslot*)>
+<!ELEMENT courses (course*)>
 
-<!ELEMENT day (timeslot|course)>
-<!ELEMENT timeslot (course|day|booking)>
-<!ELEMENT course (booking|day)>
+<!ELEMENT day (timeslot*|course*)>
+<!ELEMENT timeslot (course|day*|booking)>
+<!ELEMENT course (booking|day*)>
 <!ELEMENT booking (#PCDATA)>
 
 

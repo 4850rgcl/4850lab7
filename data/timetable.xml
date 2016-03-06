@@ -9,10 +9,31 @@ and open the template in the editor.
 <timetable>
     <days>
         <day weekday="mon">
-            <timeslot start-time="0830" end-time="0920">
-                <course program="ACIT" code="4950">
-                    <booking instructor="Jim">
-                        Sauna
+            <timeslot start-time="1030" end-time="1120">
+                <course program="ACIT" code="4650">
+                    <booking instructor="Medhat Elmasry">
+                        SE12-306
+                    </booking>
+                </course>
+            </timeslot>
+            <timeslot start-time="1130" end-time="1220">
+                <course program="ACIT" code="4650">
+                    <booking instructor="Medhat Elmasry">
+                        SE12-306
+                    </booking>
+                </course>
+            </timeslot>
+            <timeslot start-time="1530" end-time="1620">
+                <course program="ACIT" code="4910">
+                    <booking instructor="Richard Chau">
+                        SW9-206
+                    </booking>
+                </course>
+            </timeslot>
+            <timeslot start-time="1630" end-time="1720">
+                <course program="ACIT" code="4650">
+                    <booking instructor="Medhat Elmasry">
+                        SE6-205
                     </booking>
                 </course>
             </timeslot>
@@ -21,20 +42,44 @@ and open the template in the editor.
     <timeslots>
         <timeslot start-time="0830" end-time="0920">
             <day weekday="tues">
-                <course program="ACIT" code="4420">
-                    <booking instructor="Medhat">
-                        SW3-3300
+                <course program="ACIT" code="4620">
+                    <booking instructor="Bethany Edmunds">
+                        SE12-306
+                    </booking> 
+                </course>
+            </day>
+            <day weekday="fri">
+                <course program="ACIT" code="4660">
+                    <booking instructor="Steve Fabiszewski">
+                        SE12-306
                     </booking> 
                 </course>
             </day>
         </timeslot>
     </timeslots>
     <courses>
-        <course program="ACIT" code="4620">
+        <course program="ACIT" code="4850">
             <day weekday="weds">
                 <timeslot start-time="1230" end-time="1320">
-                    <booking instructor="Bethany">
-                        SW3-3315
+                    <booking instructor="James Parry">
+                        SW3-1750
+                    </booking>
+                </timeslot>
+                <timeslot start-time="1330" end-time="1420">
+                    <booking instructor="James Parry">
+                        SW3-1750
+                    </booking>
+                </timeslot>
+            </day>
+            <day weekday="thurs">
+                <timeslot start-time="1330" end-time="1420">
+                    <booking instructor="James Parry">
+                        SE12-308
+                    </booking>
+                </timeslot>
+                <timeslot start-time="1430" end-time="1520">
+                    <booking instructor="James Parry">
+                        SE12-308
                     </booking>
                 </timeslot>
             </day>
