@@ -18,6 +18,8 @@ class Timetable extends CI_model
     //constructor
     function __construct() 
     {
+        parent::__construct();
+        
         $this->xml = simplexml_load_file(DATAPATH . 'timetable.xml');
 
         //first facet
@@ -154,6 +156,8 @@ class Booking extends CI_model
     //instead, we will handle it in the timetable class and build Booking to have no knowledge of it
     function __construct($details) 
     {
+        parent::__construct();
+        
         $this->course_program = (String) $details['course_program'];
         $this->course_code = (String) $details['course_code'];
         $this->day_of_week = (String) $details['day_of_week'];
