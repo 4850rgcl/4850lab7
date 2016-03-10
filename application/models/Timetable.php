@@ -30,9 +30,47 @@ class Timetable extends CI_model
 //      
 //        
         
+        foreach ($this->xml->days->day as $day)
+        {
+            //a day can have more than one booking
+            foreach($day->timeslot as $timeslot)
+            {
+                //a timeslot must have only one booking in this context
+                $booking_details = array(); //create details array
+                
+                //get the weekday as attribute from day element
+                $booking_details['day_of_week'] = $day['weekday']; 
+                
+                //get start and end of timeslot from attributes of timeslot
+                $booking_details['timeslot_start'] = $timeslot['start-time'];
+                $booking_details['timeslot_end'] = $timeslot['end-time'];
+                
+                //get the course element and its attributes
+                $course = $timeslot[0]->course;
+                $booking_details['course_program'] = $course['program'];
+                $booking_details['course_code'] = $course['code'];
+                
+                //get the booking element, attribute, and contents
+                $booking = $course[0]->booking;
+                $booking_details['instructor'] = $booking['instructor'];
+                $booking_details['room'] = $booking;
+                                          
+                //build the booking object and add to array
+                $this->bookings_by_days[] = new Booking($booking_details);
+                
+            }
+            
+        }
         
         
     }
+    
+    function get_bookings_by_days()
+    {
+        return $this->bookings_by_days;
+    }
+
+
 
     
     
