@@ -29,7 +29,7 @@ class Timetable extends CI_model
 //        
 //      
 //        
-        
+        //first facet
         foreach ($this->xml->days->day as $day)
         {
             //a day can have more than one booking
@@ -61,7 +61,7 @@ class Timetable extends CI_model
             }
             
         }
-        
+        //second facet
         foreach ($this->xml->timeslots->timeslot as $timeslot) 
         {
             // a timeslot can exist on many days
@@ -92,6 +92,43 @@ class Timetable extends CI_model
             
         }
         
+        //third facet
+        foreach ($this->xml->courses->course as $course)
+        {
+            // a course can be on multiple days
+            foreach ($course->day as $day)
+            {
+                // a course could happen multiple times per day
+                foreach ($day->timeslot as $timeslot)
+                {
+                    $booking_details = array();
+                    
+                    //get the course element and its attributes
+                    
+                    $booking_details['course_program'] = $course['program'];
+                    $booking_details['course_code'] = $course['code'];
+                    
+                    //get the weekday as attribute from day element
+                    $booking_details['day_of_week'] = $day['weekday']; 
+                    
+                    //get start and end of timeslot from attributes of timeslot
+                    $booking_details['timeslot_start'] = $timeslot['start-time'];
+                    $booking_details['timeslot_end'] = $timeslot['end-time'];
+                    
+                    //get the booking element, attribute, and contents
+                    $booking = $timeslot[0]->booking;
+                    $booking_details['instructor'] = $booking['instructor'];
+                    $booking_details['room'] = $booking;
+                    
+                    $this->bookings_by_courses[] = new Booking($booking_details);
+                    
+                }
+                
+                
+                
+            }
+        }
+        
         
         
         
@@ -105,6 +142,12 @@ class Timetable extends CI_model
     function get_bookings_by_timeslots() {
         return $this->bookings_by_timeslots;
     }
+    
+    function get_bookings_by_courses() {
+        return $this->bookings_by_courses;
+    }
+
+
 
 
 
