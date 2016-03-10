@@ -119,19 +119,21 @@ class Timetable extends CI_model
         
     }
     
+    //accessors
+    
     function get_bookings_by_days()
     {
-        return $this->bookings_by_days;
+        return isset($this->bookings_by_days)? $this->bookings_by_days : null;
     }
 
     function get_bookings_by_timeslots()
     {
-        return $this->bookings_by_timeslots;
+        return isset($this->bookings_by_timeslots) ? $this->bookings_by_timeslots : null;
     }
     
     function get_bookings_by_courses()
     {
-        return $this->bookings_by_courses;
+        return isset($this->bookings_by_courses) ? $this->bookings_by_courses : null;
     }
   
 }
