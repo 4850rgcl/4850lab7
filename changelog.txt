@@ -1,6 +1,7 @@
 Newest changes at the top
 Format: MM/DD/YYYY HH:MM - comment  
 
+03/10/2016 14:32 - finished first facet
 03/10/2016 12:51 - added CodeIgniter starter
 03/03/2016 20:10 - added full test data, fixed multiplicity in dtd
 03/03/2016 14:56 - modified DTD for courses, added test data to XML
