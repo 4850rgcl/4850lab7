@@ -19,16 +19,7 @@ class Timetable extends CI_model
     function __construct() 
     {
         $this->xml = simplexml_load_file(DATAPATH . 'timetable.xml');
-        
-        
-        // build the list of bookings by days
-//        foreach ($this->xml->bookings_by_days->days->day as $days) {
-//         
-//        }
-//        
-//        
-//      
-//        
+
         //first facet
         foreach ($this->xml->days->day as $day)
         {
@@ -122,45 +113,29 @@ class Timetable extends CI_model
                     
                     $this->bookings_by_courses[] = new Booking($booking_details);
                     
-                }
-                
-                
-                
+                }                
             }
         }
         
-        
-        
-        
     }
+    
+    //accessors
     
     function get_bookings_by_days()
     {
-        return $this->bookings_by_days;
+        return isset($this->bookings_by_days)? $this->bookings_by_days : null;
     }
 
-    function get_bookings_by_timeslots() {
-        return $this->bookings_by_timeslots;
+    function get_bookings_by_timeslots()
+    {
+        return isset($this->bookings_by_timeslots) ? $this->bookings_by_timeslots : null;
     }
     
-    function get_bookings_by_courses() {
-        return $this->bookings_by_courses;
+    function get_bookings_by_courses()
+    {
+        return isset($this->bookings_by_courses) ? $this->bookings_by_courses : null;
     }
-
-
-
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  
 }
 
 
