@@ -13,6 +13,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div id="bookings-search">
             
+            <h1>Bookings Search</h1>            
+            
+            <form name="search-form" id="dropdown-days">
+                <select name="select-days">
+                    {select-days}
+                        <option value="{key}">{value}</option>
+                    {/select-days}
+                </select>
+                <select name="select-timeslots">
+                    {select-timeslots}
+                        <option value="{key}">{value}</option>
+                    {/select-timeslots}
+                </select>        
+            </form>
+            
         </div>
         
         <div id="bookings-lists">
