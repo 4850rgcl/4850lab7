@@ -124,6 +124,58 @@ class Timetable extends CI_model
         
     }
     
+    //search methods
+    function search_bookings_by_days($day,$slot)
+    {
+        //results array
+        $results = array();
+        
+        //iterate through and add all matching entries to results array
+        foreach($this->bookings_by_days as $booking)
+        {
+            if($booking->day_of_week === $day && $booking->timeslot_start === $slot)
+            {
+                $results[] = $booking;
+            }
+        }
+        
+        return $results;
+    }
+    
+    function search_bookings_by_timeslots($day,$slot)
+    {
+        //results array
+        $results = array();
+        
+        //iterate through and add all matching entries to results array
+        foreach($this->bookings_by_timeslots as $booking)
+        {
+            if($booking->day_of_week === $day && $booking->timeslot_start === $slot)
+            {
+                $results[] = $booking;
+            }
+        }
+        
+        return $results;
+    }
+    
+    function search_bookings_by_courses($day,$slot)
+    {
+        //results array
+        $results = array();
+        
+        //iterate through and add all matching entries to results array
+        foreach($this->bookings_by_courses as $booking)
+        {
+            if($booking->day_of_week === $day && $booking->timeslot_start === $slot)
+            {
+                $results[] = $booking;
+            }
+        }
+        
+        return $results;
+    }
+    
     //accessors
     
     function get_bookings_by_days()
