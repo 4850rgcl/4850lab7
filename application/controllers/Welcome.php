@@ -13,7 +13,7 @@ class Welcome extends CI_Controller {
         $data = array();
         $data['title'] = "Bookings";
         
-        //create bookings by days element
+        //create bookings by days section
         $bookings_by_days = $this->timetable->get_bookings_by_days();
         $fragments_by_days = '';
         foreach($bookings_by_days as $booking)
@@ -21,11 +21,29 @@ class Welcome extends CI_Controller {
             //parse view fragment and add to fragments string
             $fragments_by_days .= $this->parser->parse('single_booking',$booking, TRUE);
         }
-        $data['bookings-day'] = $fragments_by_days;
+        $data['bookings-days'] = $fragments_by_days;
+        
+        //create bookings by timeslots section
+        $bookings_by_timeslots = $this->timetable->get_bookings_by_timeslots();
+        $fragments_by_timeslots = '';
+        foreach($bookings_by_timeslots as $booking)
+        {            
+            //parse view fragment and add to fragments string
+            $fragments_by_timeslots .= $this->parser->parse('single_booking',$booking, TRUE);
+        }
+        $data['bookings-timeslots'] = $fragments_by_timeslots;
+        
+        //create bookings by courses section
+        $bookings_by_courses = $this->timetable->get_bookings_by_courses();
+        $fragments_by_courses = '';
+        foreach($bookings_by_courses as $booking)
+        {            
+            //parse view fragment and add to fragments string
+            $fragments_by_courses .= $this->parser->parse('single_booking',$booking, TRUE);
+        }
+        $data['bookings-courses'] = $fragments_by_courses;
         
         //parse outer template
         $this->parser->parse('welcome', $data);
-
-        //$this->load->view('welcome_message');
     }
 }

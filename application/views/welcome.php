@@ -12,13 +12,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div id="container">
 
     <h1>Bookings by Day</h1>
-    {bookings-day}    
+    {bookings-days}    
     
     <h1>Bookings by Timeslot</h1>
-    {bookings-timeslot}
+    {bookings-timeslots}
     
     <h1>Bookings by Course</h1>
-    {bookings-course}
+    {bookings-courses}
 
 </div>
 
