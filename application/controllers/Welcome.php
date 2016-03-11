@@ -61,4 +61,14 @@ class Welcome extends CI_Controller {
         //parse outer template
         $this->parser->parse('welcome', $data);
     }
+    
+    function search()
+    {
+       echo $this->input->get_post('select-days', TRUE);
+       echo $this->input->get_post('select-timeslots', TRUE);
+//        $this->timetable->search_bookings_by_daysh
+//        $this->timetable->search_bookings_by_timeslots();
+//        $this->timetable->search_bookings_by_courses();
+                
+    }
 }

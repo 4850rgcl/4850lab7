@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             <h1>Bookings Search</h1>            
             
-            <form name="search-form" id="dropdown-days">
+            <form name="search-form" action='welcome/search' id="dropdown-days">
                 <select name="select-days">
                     {select-days}
                         <option value="{key}">{value}</option>
@@ -25,7 +25,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     {select-timeslots}
                         <option value="{key}">{value}</option>
                     {/select-timeslots}
-                </select>        
+                </select>
+                <input type='submit' value='Submit'>
             </form>
             
         </div>
