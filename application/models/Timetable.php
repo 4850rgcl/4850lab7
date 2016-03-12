@@ -9,6 +9,10 @@
 class Timetable extends CI_model 
     {
     
+    private static $list_weekdays =  array('mon'=>'Monday','tues'=>'Tuesday','weds'=>'Wednesday','thurs'=>'Thursday','fri'=>'Friday');
+    private static $list_timeslots = array('0830'=>'8:30-9:20', '0930'=>'9:30-10:20', '1030'=>'10:30-11:20', '1130'=>'11:30-12:20', '1230'=>'12:30-13:20',
+                                             '1330'=>'13:30-14:20', '1430'=>'14:30-15:20', '1530'=>'15:30-16:20', '1630'=>'16:30-17:20');
+     
     protected $xml = null;
     protected $bookings_by_days = array();
     protected $bookings_by_timeslots = array();
@@ -120,6 +124,58 @@ class Timetable extends CI_model
         
     }
     
+    //search methods
+    function search_bookings_by_days($day,$slot)
+    {
+        //results array
+        $results = array();
+        
+        //iterate through and add all matching entries to results array
+        foreach($this->bookings_by_days as $booking)
+        {
+            if($booking->day_of_week === $day && $booking->timeslot_start === $slot)
+            {
+                $results[] = $booking;
+            }
+        }
+        
+        return $results;
+    }
+    
+    function search_bookings_by_timeslots($day,$slot)
+    {
+        //results array
+        $results = array();
+        
+        //iterate through and add all matching entries to results array
+        foreach($this->bookings_by_timeslots as $booking)
+        {
+            if($booking->day_of_week === $day && $booking->timeslot_start === $slot)
+            {
+                $results[] = $booking;
+            }
+        }
+        
+        return $results;
+    }
+    
+    function search_bookings_by_courses($day,$slot)
+    {
+        //results array
+        $results = array();
+        
+        //iterate through and add all matching entries to results array
+        foreach($this->bookings_by_courses as $booking)
+        {
+            if($booking->day_of_week === $day && $booking->timeslot_start === $slot)
+            {
+                $results[] = $booking;
+            }
+        }
+        
+        return $results;
+    }
+    
     //accessors
     
     function get_bookings_by_days()
@@ -136,6 +192,16 @@ class Timetable extends CI_model
     {
         return isset($this->bookings_by_courses) ? $this->bookings_by_courses : null;
     }
+    
+    static function get_list_weekdays() {
+        return self::$list_weekdays;
+    }
+
+    static function get_list_timeslots() {
+        return self::$list_timeslots;
+    }
+
+
   
 }
 
