@@ -58,6 +58,18 @@ class Welcome extends CI_Controller {
         }
         $data['select-timeslots'] = $list_timeslots;
         
+        //get last result from session data and insert
+        $last_result = $this->session->userdata('last_result');
+        
+        if(isset($last_result))
+        {
+            $data['bookings-result'] = $this->parser->parse('single_booking',$last_result, TRUE);
+        }
+        else
+        {
+            $data['bookings-result'] = 'No previous valid result.';
+        }
+        
         //parse outer template
         $this->parser->parse('welcome', $data);
     }
@@ -134,15 +146,25 @@ class Welcome extends CI_Controller {
         
         if ($bingo) // show single common result if all 3 match
         {
-        $time_booking['facet'] = "Any";
+            $time_booking['facet'] = "Any";
             $data['results'] = array($time_booking);
             $data['bingo'] = "BINGO!!!";
+            
+            //set userdata
+            $this->session->set_userdata('last_result',$time_booking);
          }
         else 
         {    
-            //put the results in data and parse the template
+            $data['bingo'] = "";
+            
+            //put the results in data
             $data['results'] = $results;
+
+            //set userdata
+            $this->session->set_userdata('last_result',NULL);            
         }  
-            $this->parser->parse('booking_results', $data);
+        
+        //parse the template
+        $this->parser->parse('booking_results', $data);
     }
 }
