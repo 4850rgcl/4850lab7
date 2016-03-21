@@ -40,7 +40,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <h1>Bookings by Course</h1>
             {bookings-courses}
-        <div>        
+        </div>
+            
+        <div id="bookings-result">
+            <h1>Previous Search Result</h1>
+            {bookings-result}
+        </div>
 
     </div>
 
