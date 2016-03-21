@@ -40,6 +40,24 @@ and open the template in the editor.
         </day>
     </days>
     <timeslots>
+        <timeslot start-time="1030" end-time="1120">
+            <day weekday="mon">
+                <course program="ACIT" code="4650">
+                    <booking instructor="Medhat Elmasry">
+                        SE12-306
+                    </booking>
+                </course>
+            </day>
+        </timeslot>
+        <timeslot start-time="1130" end-time="1220">
+            <day weekday="mon">
+                <course program="ACIT" code="4650">
+                    <booking instructor="Medhat Elmasry">
+                        SE12-306
+                    </booking>
+                </course>
+            </day>
+        </timeslot>
         <timeslot start-time="0830" end-time="0920">
             <day weekday="tues">
                 <course program="ACIT" code="4620">
@@ -58,6 +76,20 @@ and open the template in the editor.
         </timeslot>
     </timeslots>
     <courses>
+        <course program="ACIT" code="4650">
+            <day weekday="mon">
+                <timeslot start-time="1030" end-time="1120">
+                    <booking instructor="Medhat Elmasry">
+                        SE12-306
+                    </booking>
+                </timeslot>
+                <timeslot start-time="1130" end-time="1220">
+                    <booking instructor="Medhat Elmasry">
+                        SE12-306
+                    </booking>
+                </timeslot>    
+            </day>
+        </course>
         <course program="ACIT" code="4850">
             <day weekday="weds">
                 <timeslot start-time="1230" end-time="1320">

@@ -1,6 +1,15 @@
 Newest changes at the top
 Format: MM/DD/YYYY HH:MM - comment  
 
+03/21/2016 13:27 - added display of previous valid result
+03/21/2016 13:01 - added common result in xml for bingo condition & bingo code to controller & view
+03/11/2016 16:01 - added dropdown list to Welcome that shows all bookings matching day and timeslot
+03/10/2016 16:26 - added display of timetables in Welcome controller
+03/10/2016 15:37 - added null handling to Timetable.php
+03/10/2016 15:13 - finished third facet
+03/10/2016 14:50 - finished second facet
+03/10/2016 14:32 - finished first facet
+03/10/2016 12:51 - added CodeIgniter starter
 03/03/2016 20:10 - added full test data, fixed multiplicity in dtd
 03/03/2016 14:56 - modified DTD for courses, added test data to XML
 03/03/2016 14:41 - modified DTD for timeslots view, added test data to XML
