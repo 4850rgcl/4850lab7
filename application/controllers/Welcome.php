@@ -71,6 +71,8 @@ class Welcome extends CI_Controller {
         //define data and results array (inner and outer)
         $data = array();       
         $results = array();
+        $multi_bookings = false; // boolean for error condition of multiple booking responses, should never happen
+        $bingo = false; // check for bingo condition
         
         //get day and slot from get/post data
         $day = $this->input->get_post('select-days', TRUE);
@@ -82,7 +84,12 @@ class Welcome extends CI_Controller {
         //get matching bookings by day and add to results array
         foreach($this->timetable->search_bookings_by_days($day, $slot) as $booking)
         {
+            if (isset($day_booking)) // check for multiple booking responses, should never happen
+            {
+                $multi_bookings = true;
+            }
             $booking = (array)$booking; //convert to array
+            $day_booking = $booking; // for bingo check
             $booking['facet'] = "By Day"; //add facet info
             $results[] = $booking;
         }
@@ -90,7 +97,12 @@ class Welcome extends CI_Controller {
         //get matching bookings by timeslot and add to results array
         foreach($this->timetable->search_bookings_by_timeslots($day, $slot) as $booking)
         {
+            if (isset($time_booking)) // check for multiple booking responses, should never happen
+            {
+                $multi_bookings = true;
+            }
             $booking = (array)$booking; //convert to array
+            $time_booking = $booking; // for bingo check
             $booking['facet'] = "By Timeslot"; //add facet info
             $results[] = $booking;
         }
@@ -98,14 +110,39 @@ class Welcome extends CI_Controller {
         //get matching bookings by course and add to results array
         foreach($this->timetable->search_bookings_by_courses($day, $slot) as $booking)
         {
+            if (isset($course_booking)) // check for multiple booking responses, should never happen
+            {
+                $multi_bookings = true;
+            }
             $booking = (array)$booking; //convert to array
-            $booking['facet'] = "By Timeslot"; //add facet info
+            $course_booking=$booking; //for bingo check
+            $booking['facet'] = "By Courses"; //add facet info
             $results[] = $booking;
         }
         
-        //put the results in data and parse the template
-        $data['results'] = $results;
-        $this->parser->parse('booking_results', $data);
-                
+        //check for bingo condition
+        if (!$multi_bookings) 
+            {
+                if (isset($day_booking) && isset($time_booking) && isset($course_booking))
+                {
+                 if ($day_booking == $time_booking && $day_booking == $course_booking )
+                    {
+                      $bingo = true;
+                    }
+                }
+        }
+        
+        if ($bingo) // show single common result if all 3 match
+        {
+        $time_booking['facet'] = "Any";
+            $data['results'] = array($time_booking);
+            $data['bingo'] = "BINGO!!!";
+         }
+        else 
+        {    
+            //put the results in data and parse the template
+            $data['results'] = $results;
+        }  
+            $this->parser->parse('booking_results', $data);
     }
 }

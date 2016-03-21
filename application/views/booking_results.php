@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div id="container">
 
         <h1>Results</h1>
-        
+        <h2>{bingo}</h2>
         {results}
         <p>{facet} : {course_program}{course_code} | {day_of_week}: {timeslot_start}-{timeslot_end} | {instructor} | {room}</p>
         {/results}
