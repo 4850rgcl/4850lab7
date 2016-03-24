@@ -20,7 +20,6 @@ and open the template in the editor.
         </xs:restriction>
     </xs:simpleType>
     
-    
     <!-- time is a 4 digit time -->
     <xs:simpleType name="Ttime">
         <xs:restriction base="xs:integer">
@@ -79,7 +78,6 @@ and open the template in the editor.
         </xs:restriction>
     </xs:simpleType>
 
-
     <!-- A booking contains the room as text content and instructor as an attribute -->
     <xs:complexType name="Tbooking">
         <xs:simpleContent>
@@ -87,7 +85,39 @@ and open the template in the editor.
                 <xs:attribute name="instructor" type="xs:string"/>
             </xs:extension>
         </xs:simpleContent>
-    </xs:complexType>       
+    </xs:complexType>
+    
+    <!-- Timetable is the root element and contains a courses element -->
+    <xs:element name="timetable">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="days" type="Tdays"/>
+                <xs:element name="timeslots" type="Ttimeslots"/>
+                <xs:element name="courses" type="Tcourses"/>                
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <!-- a days element contains day elements -->
+    <xs:complexType name="Tdays">
+        <xs:sequence>
+            <xs:element name="day" type="Tday" minOccurs="0" maxOccurs="5"/>
+        </xs:sequence>
+    </xs:complexType>  
+    
+    <!-- a timeslots element contains timeslots -->
+    <xs:complexType name="Ttimeslots">
+        <xs:sequence>
+            <xs:element name="timeslot" type="Ttimeslot" minOccurs="0" maxOccurs="9"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- A courses element contains courses -->
+    <xs:complexType name="Tcourses">
+        <xs:sequence>
+            <xs:element name="course" type="Tcourse" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
     
     <!-- A timeslot contains one booking plus start-time and end-time as attributes -->
     <xs:complexType name="Ttimeslot">
@@ -118,41 +148,5 @@ and open the template in the editor.
         <xs:attribute name="program" type="Tprogram" use="required"/>
         <xs:attribute name="code" type="Tcode" use="required"/>
     </xs:complexType>
-    
-    <!-- A courses element contains courses -->
-    <xs:complexType name="Tcourses">
-        <xs:sequence>
-            <xs:element name="course" type="Tcourse" minOccurs="0" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:complexType>
-    
-    <!-- a timeslots element contains timeslots -->
-    <xs:complexType name="Ttimeslots">
-        <xs:sequence>
-            <xs:element name="timeslot" type="Ttimeslot" minOccurs="0" maxOccurs="9"/>
-        </xs:sequence>
-    </xs:complexType>
-    
-    <!-- a days element contains day elements -->
-    <xs:complexType name="Tdays">
-        <xs:sequence>
-            <xs:element name="day" type="Tday" minOccurs="0" maxOccurs="5"/>
-        </xs:sequence>
-    </xs:complexType>
-    
-
-    <!-- Timetable is the root element and contains a courses element -->
-    <xs:element name="timetable">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="days" type="Tdays"/>
-                <xs:element name="timeslots" type="Ttimeslots"/>
-                <xs:element name="courses" type="Tcourses"/>                
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-    
-    
-    
-    
+  
 </xs:schema>
