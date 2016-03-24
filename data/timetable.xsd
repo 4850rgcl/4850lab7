@@ -94,6 +94,7 @@ and open the template in the editor.
         <xs:choice>
             <xs:element name="booking" type="Tbooking"/>
             <xs:element name="day" type="Tday" minOccurs="0" maxOccurs="5"/>
+            <xs:element name="course" type="Tcourse" />
         </xs:choice>
         <xs:attribute name="start-time" type="Tstart-time" use="required"/>
         <xs:attribute name="end-time" type="Tend-time" use="required"/>
@@ -132,14 +133,21 @@ and open the template in the editor.
         </xs:sequence>
     </xs:complexType>
     
+    <!-- a days element contains day elements -->
+    <xs:complexType name="Tdays">
+        <xs:sequence>
+            <xs:element name="day" type="Tday" minOccurs="0" maxOccurs="5"/>
+        </xs:sequence>
+    </xs:complexType>
+    
 
     <!-- Timetable is the root element and contains a courses element -->
     <xs:element name="timetable">
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="days" type="Tdays"/>
                 <xs:element name="timeslots" type="Ttimeslots"/>
-                <xs:element name="courses" type="Tcourses"/>
-                
+                <xs:element name="courses" type="Tcourses"/>                
             </xs:sequence>
         </xs:complexType>
     </xs:element>
