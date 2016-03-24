@@ -71,5 +71,12 @@ and open the template in the editor.
             <xs:pattern value="\d{4}"/>
         </xs:restriction>
     </xs:simpleType>
+    
+    <!-- rooms are of the format aan(n)-nnn(n) (SW1-1205, SE12-306, etc) -->
+    <xs:simpleType name="Troom">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{2}\d{1,2}-\d{3,4}"/>
+        </xs:restriction>
+    </xs:simpleType>
 
 </xs:schema>
