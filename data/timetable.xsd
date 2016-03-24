@@ -79,4 +79,61 @@ and open the template in the editor.
         </xs:restriction>
     </xs:simpleType>
 
+
+    <!-- A booking contains the room as text content and instructor as an attribute -->
+    <xs:element name="Tbooking">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="Troom">
+                    <xs:attribute name="instructor" type="xs:string"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>       
+    </xs:element>
+    
+    <xs:element name="Ttimeslot">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="booking" type="Tbooking"/>
+            </xs:sequence>
+            <xs:attribute name="start-time" type="Tstart-time" use="required"/>
+            <xs:attribute name="end-time" type="Tend-time" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="Tday">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="timeslot" type="Ttimeslot"/>     
+            </xs:sequence>
+            <xs:attribute name="weekday" type="Tweekday" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="Tcourse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="day" type="Tday"/>
+            </xs:sequence>
+            <xs:attribute name="program" type="Tprogram" use="required"/>
+            <xs:attribute name="code" type="Tcode" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="Tcourses">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="course" type="Tcourse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="timetable">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="courses" type="Tcourses"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
 </xs:schema>
