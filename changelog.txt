@@ -1,6 +1,8 @@
 Newest changes at the top
 Format: MM/DD/YYYY HH:MM - comment  
 
+
+03/24/2016 15:05 - created course facet elements in xsd
 03/24/2016 14:29 - added room datatype with regex match
 03/24/2016 14:15 - setup initial datatypes for xml schema
 03/21/2016 13:27 - added display of previous valid result
