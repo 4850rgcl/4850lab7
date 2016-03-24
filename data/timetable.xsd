@@ -91,26 +91,29 @@ and open the template in the editor.
     
     <!-- A timeslot contains one booking plus start-time and end-time as attributes -->
     <xs:complexType name="Ttimeslot">
-        <xs:sequence>
+        <xs:choice>
             <xs:element name="booking" type="Tbooking"/>
-        </xs:sequence>
+            <xs:element name="day" type="Tday" minOccurs="0" maxOccurs="5"/>
+        </xs:choice>
         <xs:attribute name="start-time" type="Tstart-time" use="required"/>
         <xs:attribute name="end-time" type="Tend-time" use="required"/>
     </xs:complexType>
     
     <!-- A day contains up to nine timeslots and has weekday as an attribute -->
     <xs:complexType name="Tday">
-        <xs:sequence>
+        <xs:choice>
             <xs:element name="timeslot" type="Ttimeslot" minOccurs="0" maxOccurs="9"/>     
-        </xs:sequence>
+            <xs:element name="course" type="Tcourse" minOccurs="0" maxOccurs="9"/>
+        </xs:choice>
         <xs:attribute name="weekday" type="Tweekday" use="required"/>
     </xs:complexType>
     
     <!-- A course contains up to five days and has program and code as attributes -->
     <xs:complexType name="Tcourse">
-        <xs:sequence>
+        <xs:choice>
             <xs:element name="day" type="Tday" maxOccurs="5"/>
-        </xs:sequence>
+            <xs:element name="booking" type="Tbooking" minOccurs="0" maxOccurs="9"/>
+        </xs:choice>
         <xs:attribute name="program" type="Tprogram" use="required"/>
         <xs:attribute name="code" type="Tcode" use="required"/>
     </xs:complexType>
@@ -121,14 +124,27 @@ and open the template in the editor.
             <xs:element name="course" type="Tcourse" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
+    
+    <!-- a timeslots element contains timeslots -->
+    <xs:complexType name="Ttimeslots">
+        <xs:sequence>
+            <xs:element name="timeslot" type="Ttimeslot" minOccurs="0" maxOccurs="9"/>
+        </xs:sequence>
+    </xs:complexType>
+    
 
     <!-- Timetable is the root element and contains a courses element -->
     <xs:element name="timetable">
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="timeslots" type="Ttimeslots"/>
                 <xs:element name="courses" type="Tcourses"/>
+                
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+    
+    
+    
     
 </xs:schema>
