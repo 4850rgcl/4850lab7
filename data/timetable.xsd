@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    
+    <!-- week days from monday to friday are valid -->
+    <xs:simpleType name="Tweekdays">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="mon"/>
+            <xs:enumeration value="tues"/>
+            <xs:enumeration value="weds"/>
+            <xs:enumeration value="thurs"/>
+            <xs:enumeration value="fri"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    
+    <!-- time is a 4 digit time -->
+    <xs:simpleType name="Ttime">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="[0-2][0-9][0-5][0-9]"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <!-- represents class period start times -->
+    <xs:simpleType name="Tstart-time">
+        <xs:restriction base="Ttime">
+            <xs:enumeration value="0830"/>
+            <xs:enumeration value="0930"/>
+            <xs:enumeration value="1030"/>
+            <xs:enumeration value="1130"/>
+            <xs:enumeration value="1230"/>
+            <xs:enumeration value="1330"/>
+            <xs:enumeration value="1430"/>
+            <xs:enumeration value="1530"/>
+            <xs:enumeration value="1630"/>
+        </xs:restriction>  
+    </xs:simpleType>
+
+    <!-- represents class period end times -->   
+    <xs:simpleType name="Tend-time">
+        <xs:restriction base="Ttime">
+            <xs:enumeration value="0920"/>
+            <xs:enumeration value="1020"/>
+            <xs:enumeration value="1120"/>
+            <xs:enumeration value="1220"/>
+            <xs:enumeration value="1320"/>
+            <xs:enumeration value="1420"/>
+            <xs:enumeration value="1520"/>
+            <xs:enumeration value="1620"/>
+            <xs:enumeration value="1720"/>
+        </xs:restriction>  
+    </xs:simpleType>
+    
+    <!-- program code is four uppercase letters (ACIT, COMP, etc) -->
+    <xs:simpleType name="Tprogram">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <!-- course code is four digits (4711, 4850, etc) -->
+    <xs:simpleType name="Tcode">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="\d{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
