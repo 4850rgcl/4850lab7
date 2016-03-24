@@ -11,30 +11,22 @@ and open the template in the editor.
         <day weekday="mon">
             <timeslot start-time="1030" end-time="1120">
                 <course program="ACIT" code="4650">
-                    <booking instructor="Medhat Elmasry">
-                        SE12-306
-                    </booking>
+                    <booking instructor="Medhat Elmasry">SE12-306</booking>
                 </course>
             </timeslot>
             <timeslot start-time="1130" end-time="1220">
                 <course program="ACIT" code="4650">
-                    <booking instructor="Medhat Elmasry">
-                        SE12-306
-                    </booking>
+                    <booking instructor="Medhat Elmasry">SE12-306</booking>
                 </course>
             </timeslot>
             <timeslot start-time="1530" end-time="1620">
                 <course program="ACIT" code="4910">
-                    <booking instructor="Richard Chau">
-                        SW9-206
-                    </booking>
+                    <booking instructor="Richard Chau">SW9-206</booking>
                 </course>
             </timeslot>
             <timeslot start-time="1630" end-time="1720">
                 <course program="ACIT" code="4650">
-                    <booking instructor="Medhat Elmasry">
-                        SE6-205
-                    </booking>
+                    <booking instructor="Medhat Elmasry">SE6-205</booking>
                 </course>
             </timeslot>
         </day>
@@ -43,34 +35,26 @@ and open the template in the editor.
         <timeslot start-time="1030" end-time="1120">
             <day weekday="mon">
                 <course program="ACIT" code="4650">
-                    <booking instructor="Medhat Elmasry">
-                        SE12-306
-                    </booking>
+                    <booking instructor="Medhat Elmasry">SE12-306</booking>
                 </course>
             </day>
         </timeslot>
         <timeslot start-time="1130" end-time="1220">
             <day weekday="mon">
                 <course program="ACIT" code="4650">
-                    <booking instructor="Medhat Elmasry">
-                        SE12-306
-                    </booking>
+                    <booking instructor="Medhat Elmasry">SE12-306</booking>
                 </course>
             </day>
         </timeslot>
         <timeslot start-time="0830" end-time="0920">
             <day weekday="tues">
                 <course program="ACIT" code="4620">
-                    <booking instructor="Bethany Edmunds">
-                        SE12-306
-                    </booking> 
+                    <booking instructor="Bethany Edmunds">SE12-306</booking> 
                 </course>
             </day>
             <day weekday="fri">
                 <course program="ACIT" code="4660">
-                    <booking instructor="Steve Fabiszewski">
-                        SE12-306
-                    </booking> 
+                    <booking instructor="Steve Fabiszewski">SE12-306</booking> 
                 </course>
             </day>
         </timeslot>
@@ -79,40 +63,28 @@ and open the template in the editor.
         <course program="ACIT" code="4650">
             <day weekday="mon">
                 <timeslot start-time="1030" end-time="1120">
-                    <booking instructor="Medhat Elmasry">
-                        SE12-306
-                    </booking>
+                    <booking instructor="Medhat Elmasry">SE12-306</booking>
                 </timeslot>
                 <timeslot start-time="1130" end-time="1220">
-                    <booking instructor="Medhat Elmasry">
-                        SE12-306
-                    </booking>
+                    <booking instructor="Medhat Elmasry">SE12-306</booking>
                 </timeslot>    
             </day>
         </course>
         <course program="ACIT" code="4850">
             <day weekday="weds">
                 <timeslot start-time="1230" end-time="1320">
-                    <booking instructor="James Parry">
-                        SW3-1750
-                    </booking>
+                    <booking instructor="James Parry">SW3-1750</booking>
                 </timeslot>
                 <timeslot start-time="1330" end-time="1420">
-                    <booking instructor="James Parry">
-                        SW3-1750
-                    </booking>
+                    <booking instructor="James Parry">SW3-1750</booking>
                 </timeslot>
             </day>
             <day weekday="thurs">
                 <timeslot start-time="1330" end-time="1420">
-                    <booking instructor="James Parry">
-                        SE12-308
-                    </booking>
+                    <booking instructor="James Parry">SE12-308</booking>
                 </timeslot>
                 <timeslot start-time="1430" end-time="1520">
-                    <booking instructor="James Parry">
-                        SE12-308
-                    </booking>
+                    <booking instructor="James Parry">SE12-308</booking>
                 </timeslot>
             </day>
         </course>
