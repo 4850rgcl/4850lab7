@@ -10,6 +10,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <body>
 
     <div id="container">
+        
+        <div id="bookings-validation">
+            
+            <h1>Validation Status</h1>
+            
+            <p>{validation-status}</p>
+            
+            {validation-messages}
+            <p>{validation-message}</p>
+            {/validation-messages}
+            
+        </div>
 
         <div id="bookings-search">
             
