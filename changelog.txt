@@ -1,6 +1,8 @@
 Newest changes at the top
 Format: MM/DD/YYYY HH:MM - comment  
 
+
+03/24/2016 14:15 - setup initial datatypes for xml schema
 03/21/2016 13:27 - added display of previous valid result
 03/21/2016 13:01 - added common result in xml for bingo condition & bingo code to controller & view
 03/11/2016 16:01 - added dropdown list to Welcome that shows all bookings matching day and timeslot
