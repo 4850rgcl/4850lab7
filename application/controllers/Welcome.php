@@ -13,6 +13,15 @@ class Welcome extends CI_Controller {
         $data = array();
         $data['title'] = "Bookings";
         
+        //get and display validation messages
+        $data['validation-status'] = $this->timetable->get_validation_status() ? "Timetable data validated successfully against schema!" : "Errors detected in timetable document.";
+        $validation_messages = array();
+        foreach($this->timetable->get_validation_messages() as $message)
+        {
+            $validation_messages[] = array('validation-message'=>$message);
+        }
+        $data['validation-messages'] = $validation_messages;       
+        
         //create bookings by days section
         $bookings_by_days = $this->timetable->get_bookings_by_days();
         $fragments_by_days = '';
