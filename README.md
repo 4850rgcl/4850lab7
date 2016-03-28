@@ -1,5 +1,5 @@
 # 4850lab7
-Lab 7 XML and Lab 8 XML Processing
+Lab 7 XML, Lab 8 XML Processing, Lab 9 XML Schema
 
 ## Conventions
 

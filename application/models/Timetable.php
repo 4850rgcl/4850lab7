@@ -14,6 +14,8 @@ class Timetable extends CI_model
                                              '1330'=>'13:30-14:20', '1430'=>'14:30-15:20', '1530'=>'15:30-16:20', '1630'=>'16:30-17:20');
      
     protected $xml = null;
+    protected $validation_status = FALSE;
+    protected $validation_messages = array();
     protected $bookings_by_days = array();
     protected $bookings_by_timeslots = array();
     protected $bookings_by_courses = array();
@@ -24,6 +26,23 @@ class Timetable extends CI_model
     {
 
         $this->xml = simplexml_load_file(DATAPATH . 'timetable.xml');
+        
+        //validate and retain status
+        $doc = dom_import_simplexml($this->xml)->ownerDocument;
+        libxml_use_internal_errors(true);
+        if($doc->schemaValidate(DATAPATH . 'timetable.xsd'))
+        {
+            $this->validation_status = TRUE;
+        }
+        else
+        {
+            $this->validation_status = FALSE;
+            foreach(libxml_get_errors() as $error)
+            {
+                $this->validation_messages[] = $error->message;
+            }
+        }
+        libxml_clear_errors();
 
         //first facet
         foreach ($this->xml->days->day as $day)
@@ -193,6 +212,16 @@ class Timetable extends CI_model
         return isset($this->bookings_by_courses) ? $this->bookings_by_courses : null;
     }
     
+    function get_validation_status()
+    {
+        return $this->validation_status;
+    }
+    
+    function get_validation_messages()
+    {
+        return $this->validation_messages;
+    }
+    
     static function get_list_weekdays() {
         return self::$list_weekdays;
     }
@@ -200,6 +229,7 @@ class Timetable extends CI_model
     static function get_list_timeslots() {
         return self::$list_timeslots;
     }
+    
 
 
   
