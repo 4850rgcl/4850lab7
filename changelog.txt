@@ -1,6 +1,7 @@
 Newest changes at the top
 Format: MM/DD/YYYY HH:MM - comment  
 
+03/31/2016 14:16 - stylesheet for timetable with days on top, some css
 03/31/2016 13:00 - start of lab10, initial setup of stylesheet
 03/24/2016 16:41 - added schema validation functionality to site
 03/24/2016 16:17 - added days facet to schema and clarified the schema
