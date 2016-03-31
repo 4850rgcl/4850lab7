@@ -1,23 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-    Document   : daysHorz.xsl
-    Created on : March 31, 2016, 1:11 PM
-    Author     : Richard
-    Description:
-        Purpose of transformation follows.
--->
-
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:output method="html"/>
-    
-    <!-- CSS so it doesn't look horrible -->
-    
 
-    <!-- TODO customize transformation rules 
-         syntax recommendation http://www.w3.org/TR/xslt 
-    -->
+    <!-- start the XSL transformation -->
     <xsl:template match="/">
+        
+        <!-- because we are outputting HTML, we must define some HTML elements -->
         <html>
             <head>
                 <title>Timetable Horizontal</title>
@@ -27,10 +16,9 @@
                 <h1>Timetable</h1>
                 <h2>Horizontal (days across top), based on timeslots facet</h2>
 
-                <table>
+                <table>                    
                     <xsl:call-template name="headings"/>
-                    <xsl:apply-templates select="timetable/timeslots/timeslot"/>
-                    <!-- will probably need to put another call-template or apply-template here -->        
+                    <xsl:apply-templates select="timetable/timeslots/timeslot"/>     
                 </table>
         
             </body>
@@ -38,6 +26,7 @@
         
     </xsl:template>
     
+    <!-- headings for weekdays are hardcoded here -->
     <xsl:template name="headings">
         <tr>
             <th></th>
@@ -49,6 +38,7 @@
         </tr>
     </xsl:template>
     
+    <!-- for each timeslot, print out the time and information for the course in each day (if exists) -->
     <xsl:template match="timeslot">
         <tr>
             <td>
@@ -72,6 +62,7 @@
         </tr>
     </xsl:template>
     
+    <!-- this template is for a day: program, code, instructor, and booking(room) -->
     <xsl:template match="day">
         <xsl:value-of select="course/@program" />
         <xsl:value-of select="course/@code" />
