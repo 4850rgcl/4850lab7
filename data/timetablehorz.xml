@@ -33,6 +33,18 @@ xsi:noNamespaceSchemaLocation="timetable.xsd">
         </day>
     </days>
     <timeslots>
+        <timeslot start-time="0830" end-time="0920">
+            <day weekday="tues">
+                <course program="ACIT" code="4620">
+                    <booking instructor="Bethany Edmunds">SE12-306</booking> 
+                </course>
+            </day>
+            <day weekday="fri">
+                <course program="ACIT" code="4660">
+                    <booking instructor="Steve Fabiszewski">SE12-306</booking> 
+                </course>
+            </day>
+        </timeslot>
         <timeslot start-time="1030" end-time="1120">
             <day weekday="mon">
                 <course program="ACIT" code="4650">
@@ -44,18 +56,6 @@ xsi:noNamespaceSchemaLocation="timetable.xsd">
             <day weekday="mon">
                 <course program="ACIT" code="4650">
                     <booking instructor="Medhat Elmasry">SE12-306</booking>
-                </course>
-            </day>
-        </timeslot>
-        <timeslot start-time="0830" end-time="0920">
-            <day weekday="tues">
-                <course program="ACIT" code="4620">
-                    <booking instructor="Bethany Edmunds">SE12-306</booking> 
-                </course>
-            </day>
-            <day weekday="fri">
-                <course program="ACIT" code="4660">
-                    <booking instructor="Steve Fabiszewski">SE12-306</booking> 
                 </course>
             </day>
         </timeslot>
