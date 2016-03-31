@@ -30,6 +30,7 @@ xsi:noNamespaceSchemaLocation="timetable.xsd">
                 </course>
             </timeslot>
         </day>
+        
     </days>
     <timeslots>
         <timeslot start-time="1030" end-time="1120">
