@@ -31,6 +31,13 @@ xsi:noNamespaceSchemaLocation="timetable.xsd">
                 </course>
             </timeslot>
         </day>
+        <day weekday="thurs">
+            <timeslot start-time="1330" end-time="1420">
+                <course program="ACIT" code="4850">
+                    <booking instructor="James Parry">SE12-308</booking>
+                </course>
+            </timeslot>
+        </day>
     </days>
     <timeslots>
         <timeslot start-time="1030" end-time="1120">
